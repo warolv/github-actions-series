@@ -1,1 +1,1 @@
-# A series of tutorial for GutHub Actions
+# A series of tutorial for GitHub Actions
