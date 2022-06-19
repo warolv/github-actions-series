@@ -2,8 +2,6 @@
 
 ![gh-tf-example](images/tf-example/0.png)
 
-Hi, I am DevOps Engineer from Tikal Knowledge.
-
 In this tutorial, I will create simple and practical example of how to provision EC2 instance with Github Actions and Terraform. I will use workflow_dispatch type of workflow which is triggered manually by user, using Terraform Github action from HashiCorp.
 
 This tutorial, will be first in series of tutorials for Github Actions, in next tutorials I will show how to create and use self-hosted GitHub runners with EC2, docker containers running on Kubernetes and much more.
@@ -16,21 +14,9 @@ Deploy EC2 instance of t3.small size to your AWS account using Github Actions an
 
 I will use ‘workflow_dispatch’ event for this, which is manually triggered.
 
-### What is GitHub actions?
-
-> GitHub Actions is a continuous integration and continuous delivery (CI/CD) platform that allows you to automate your build, test, and deployment pipeline. You can create workflows that build and test every pull request to your repository, or deploy merged pull requests to production.
-
-> GitHub Actions goes beyond just DevOps and lets you run workflows when other events happen in your repository. For example, you can run a workflow to automatically add the appropriate labels whenever someone creates a new issue in your repository.
-
-> GitHub provides Linux, Windows, and macOS virtual machines to run your workflows, or you can host your own self-hosted runners in your own data center or cloud infrastructure.
-
 ### workflow_dispatch
 
 > This event occurs when someone triggers a workflow run on GitHub or sends a POST request to the "Create a workflow dispatch event" endpoint. For more information, see "Events that trigger workflows."
-
-### Why to use it?
-
-> GitHub Actions makes it easy to automate all your software workflows, now with world-class CI/CD. Build, test, and deploy your code right from GitHub. Make code reviews, branch management, and issue triaging work the way you want.
 
 ## Let’s do it
 
@@ -217,13 +203,12 @@ ssh -i app-ssh-key.pem ubuntu@13.58.251.181
 
 Success!
 
-## Conclusion
 
 In this tutorial, I explained how to provision EC2 instance using Terraform and Github Actions workflow, I used GitHub-hosted runner and workflow_dispatch type of workflow which is triggered manually.
 
 Thank you for reading, I hope you enjoyed it, see you in the next post.
 
-If you want to be notified when the next post of this tutorial is published, please follow me on medium and on my Twitter (@warolv).
+If you want to be notified when the next post of this tutorial is published, please follow me on [medium](https://warolv.medium.com/) and on my Twitter (@warolv).
 
 You can get all tutorials of Gihub Action from my github repo by cloning it: ‘git clone https://github.com/warolv/github-actions-series.git‘
 
