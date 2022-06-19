@@ -1,6 +1,6 @@
 # Use GitHub Actions and Terraform to provision EC2 instance
 
-![gh-tf-example](images/tf-pexample/0.png)
+![gh-tf-example](images/tf-example/0.png)
 
 Hi, I am DevOps Engineer from Tikal Knowledge.
 
@@ -18,33 +18,33 @@ I will use ‘workflow_dispatch’ event for this, which is manually triggered.
 
 ### What is GitHub actions?
 
-GitHub Actions is a continuous integration and continuous delivery (CI/CD) platform that allows you to automate your build, test, and deployment pipeline. You can create workflows that build and test every pull request to your repository, or deploy merged pull requests to production.
+> GitHub Actions is a continuous integration and continuous delivery (CI/CD) platform that allows you to automate your build, test, and deployment pipeline. You can create workflows that build and test every pull request to your repository, or deploy merged pull requests to production.
 
-GitHub Actions goes beyond just DevOps and lets you run workflows when other events happen in your repository. For example, you can run a workflow to automatically add the appropriate labels whenever someone creates a new issue in your repository.
+> GitHub Actions goes beyond just DevOps and lets you run workflows when other events happen in your repository. For example, you can run a workflow to automatically add the appropriate labels whenever someone creates a new issue in your repository.
 
-GitHub provides Linux, Windows, and macOS virtual machines to run your workflows, or you can host your own self-hosted runners in your own data center or cloud infrastructure.
+> GitHub provides Linux, Windows, and macOS virtual machines to run your workflows, or you can host your own self-hosted runners in your own data center or cloud infrastructure.
 
 ### workflow_dispatch
 
-This event occurs when someone triggers a workflow run on GitHub or sends a POST request to the "Create a workflow dispatch event" endpoint. For more information, see "Events that trigger workflows."
+> This event occurs when someone triggers a workflow run on GitHub or sends a POST request to the "Create a workflow dispatch event" endpoint. For more information, see "Events that trigger workflows."
 
 ### Why to use it?
 
-GitHub Actions makes it easy to automate all your software workflows, now with world-class CI/CD. Build, test, and deploy your code right from GitHub. Make code reviews, branch management, and issue triaging work the way you want.
+> GitHub Actions makes it easy to automate all your software workflows, now with world-class CI/CD. Build, test, and deploy your code right from GitHub. Make code reviews, branch management, and issue triaging work the way you want.
 
 ## Let’s do it
 
-Generate AWS Credentials for terraform user
+**Generate AWS Credentials for terraform user**
 
 Go to your AWS account -> IAM -> Add new user
 
 ![gh-tf-example](images/tf-example/1.png)
 
-We need only ‘Programmatic access’
+> We need only ‘Programmatic access’
 
 ![gh-tf-example](images/tf-example/2.png)
 
-To simplify this tutorial, I will use EC2 Full Access permissions.
+> To simplify this tutorial, I will use EC2 Full Access permissions.
 
 ![gh-tf-example](images/tf-example/3.png)
 
@@ -54,7 +54,7 @@ Download and save Access key id and Secret access key which will be added as sec
 
 Go to your github repository -> settings -> secrets -> actions
 
-My repo is https://github.com/warolv/github-actions-series, with all the code and the github actions workflow.
+> My repo is https://github.com/warolv/github-actions-series, with all the code and the github actions workflow.
 
 ![gh-tf-example](images/tf-example/4.png)
 
@@ -123,13 +123,13 @@ tags = {
 
 The EC2 name will be set through workflow using the inputs.
 
-```
+``` terraform
 variable "ec2_name" {
   type = string
 }
 ```
 
-##Create workflow with Github Actions to provision EC2 instance
+## Create workflow with Github Actions to provision EC2 instance
 
 * ‘configure-aws-credentials’ action used to set AWS credentials with docker container to be used by Terraform.
 
@@ -138,19 +138,15 @@ variable "ec2_name" {
 * Used setup-terraform action from HashiCorp.
 
 * Used GitHub-hosted runner: ubuntu-latest.
+
 https://github.com/warolv/github-actions-series/blob/master/.github/workflows/provision_ec2.yaml
 
 To see your workflow in actions -> workflows, first need to create ‘.github/workflows/provision_ec2.yaml’ and add it to your repository.
 
  .github/workflows/provision_ec2.yaml
 
-```
-variable "ec2_name" {
-  type = string
-}
-```
 
-``` terraform
+``` yaml
 name: Provision t3.micro EC2
 on:
   workflow_dispatch:
@@ -227,5 +223,7 @@ In this tutorial, I explained how to provision EC2 instance using Terraform and 
 
 Thank you for reading, I hope you enjoyed it, see you in the next post.
 
-If you want to be notified when the next post of this tutorial is published, please follow me here on medium and on Twitter (@warolv).
+If you want to be notified when the next post of this tutorial is published, please follow me on medium and on my Twitter (@warolv).
+
+You can get all tutorials of Gihub Action from my github repo by cloning it: ‘git clone https://github.com/warolv/github-actions-series.git‘
 
