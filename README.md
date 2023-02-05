@@ -3,3 +3,5 @@
 1. [Use GitHub Actions and Terraform to provision EC2 instance](tf-example.md)
 
 ![gh-tf-example](images/tf-example/0.png)
+
+![Youtube](https://youtu.be/oiD80Sxzi4s)
