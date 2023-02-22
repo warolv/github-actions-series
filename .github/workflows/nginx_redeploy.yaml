@@ -1,0 +1,16 @@
+name: Redeploy nginx after changes in deployment.yaml
+on:
+  push:
+    branches:
+    - master
+
+jobs:
+  redeploy-nginx:
+    runs-on: self-hosted-runner
+    steps:
+      - uses: actions/checkout@v3
+        run: |
+          pwd
+          ls -al
+          kubectl apply -f nginx/deployment.yaml
+     

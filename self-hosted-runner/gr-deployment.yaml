@@ -24,6 +24,8 @@ spec:
           value: warolv
         - name: GITHUB_REPOSITORY
           value: github-actions-series
+        - name: RUNNER_LABELS
+          value: self-hosted-runner
         - name: GITHUB_PAT
           valueFrom:
             secretKeyRef:
