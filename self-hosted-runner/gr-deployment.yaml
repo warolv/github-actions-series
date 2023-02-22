@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: github-runner
+  namespace: github-runner
+  labels:
+    app: github-runner
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: github-runner
+  template:
+    metadata:
+      labels:
+        app: github-runner
+    spec:
+      serviceAccountName: gr-sa
+      containers:
+      - name: github-runner
+        image: sanderknape/github-runner:latest
+        env:
+        - name: GITHUB_OWNER
+          value: warolv
+        - name: GITHUB_REPOSITORY
+          value: github-actions-series
+        - name: GITHUB_PAT
+          valueFrom:
+            secretKeyRef:
+              name: gh-pat
+              key: pat
+        lifecycle:
+          postStart:
+            exec:
+              command:
+                [
+                  "sh",
+                  "-c",
+                  "cd /tmp;curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.24.10/2023-01-30/bin/linux/amd64/kubectl;chmod +x kubectl;sudo cp kubectl /usr/bin;"
+                ]
