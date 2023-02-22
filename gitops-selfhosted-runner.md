@@ -19,7 +19,7 @@ kubectl create secret generic gh-pat \
     --from-literal=pat=YOUR_GITHUB_PAT
 ```
 
-### deploy runner
+### deploy all manifests
 ```
 kubectl apply -f self-hosted-runner
 ```
