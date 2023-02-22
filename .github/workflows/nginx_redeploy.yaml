@@ -1,8 +1,8 @@
 name: Redeploy nginx after changes in deployment.yaml
 on:
   push:
-    branches:
-    - master
+    paths:
+      - nginx/**
 
 jobs:
   redeploy-nginx:
@@ -11,7 +11,5 @@ jobs:
       - uses: actions/checkout@v3
       - name: Redeploy nginx
         run: |
-          pwd
-          ls -al
           kubectl apply -f nginx/deployment.yaml
      
