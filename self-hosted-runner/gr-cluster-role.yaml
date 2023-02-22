@@ -3,6 +3,6 @@ kind: ClusterRole
 metadata:
   name: pod-handler
 rules:
-- apiGroups: [""]
+- apiGroups: ["apps"]
   resources: ["pods", "deployments"]
   verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
