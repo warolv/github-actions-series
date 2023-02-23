@@ -150,8 +150,7 @@ Also we installing ‘kubectl’ to existing runner using ‘lifecycle poststart
 
 
 > PostStart
-
-The PostStart hook is called immediately after a container is created. This occurs as it transitions into the Running phase after its Waiting period.
+> The PostStart hook is called immediately after a container is created. This occurs as it transitions into the Running phase after its Waiting period.
 
 **gr_sa.yaml** is a service account which will be attached to runner, in order to have permissions for redeploying Nginx.
 
