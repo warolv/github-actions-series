@@ -2,7 +2,7 @@
 
 ![self-hosted-runner](images/self-hosted-runner/0.png)
 
-n this tutorial, I will show how to:
+In this tutorial, I will show how to:
 
 1. Deploy self-hosted-runner to Kubernetes and connect it with your GitHub repo.
 
@@ -16,12 +16,12 @@ n this tutorial, I will show how to:
 
 The reason for self-hosted runner is coming from security limitation ( in my case), I have an internal k8s cluster which is not externally reachable and can be accessed only via VPN.
 
-** So how it works if the cluster can’t be reached externally?**
+**So how it works if the cluster can’t be reached externally?**
 
-Communication between self-hosted runners and GitHub
+> **Communication between self-hosted runners and GitHub**
 
-> "The self-hosted runner connects to GitHub to receive job assignments and to download new versions of the runner application. The self-hosted runner uses an HTTPS long poll that opens a connection to GitHub for 50 seconds, and if no response is received, it then times out and creates a new long poll. The application must be running on the machine to accept and run GitHub Actions jobs.
-Since the self-hosted runner opens a connection to GitHub.com, you do not need to allow GitHub to make inbound connections to your self-hosted runner."
+The self-hosted runner connects to GitHub to receive job assignments and to download new versions of the runner application. The self-hosted runner uses an HTTPS long poll that opens a connection to GitHub for 50 seconds, and if no response is received, it then times out and creates a new long poll. The application must be running on the machine to accept and run GitHub Actions jobs.
+Since the self-hosted runner opens a connection to GitHub.com, you do not need to allow GitHub to make inbound connections to your self-hosted runner.
 
 meaning self-hosted runner using https polling to talk with Github, but Github not talking directly with self-hosted runners.
 
@@ -39,7 +39,9 @@ Developer settings -> Generate new token
 
 I will use Dockerfile for self-hosted runner from this repo: [Github self-hosted](https://github.com/SanderKnape/github-runner)
 
-> "by Sander Knape, https://sanderknape.com/2020/03/self-hosted-github-actions-runner-kubernetes/"
+
+> by Sander Knape, https://sanderknape.com/2020/03/self-hosted-github-actions-runner-kubernetes/
+
 
 ### Validation of PAT by running self-hosted runner as docker container
 
@@ -51,13 +53,17 @@ docker run --name github-runner \
      sanderknape/github-runner
 ```
 
-> "I am using my Github account for testing: warolv, repo is ‘github-actions-series’ and PAT we generated previously"
+
+> I am using my Github account for testing: warolv, repo is ‘github-actions-series’ and PAT we generated previously
+
 
 ![self-hosted-runner](images/self-hosted-runner/2.png)
 
 Go to your Github repo -> settings -> Actions -> runners, you will see new self-hosted runner:
 
+
 ![self-hosted-runner](images/self-hosted-runner/3.png)
+
 
 self-hosted runner is connected to Github and ready to do the job, looks good:-)
 
@@ -74,6 +80,7 @@ kind create cluster
 ### Now let’s actually provision self-hosted runner to k8s
 
 First clone my repo: git clone git@github.com:warolv/github-actions-series.git
+
 
 ### Creating of k8s secret with PAT in namespace: ‘github-runner’
 
@@ -141,9 +148,10 @@ spec:
 
 Also we installing ‘kubectl’ to existing runner using ‘lifecycle poststart’ hook, we need kubectl to redeploy Nginx on configuration change.
 
-> "PostStart
 
-The PostStart hook is called immediately after a container is created. This occurs as it transitions into the Running phase after its Waiting period."
+> PostStart
+
+The PostStart hook is called immediately after a container is created. This occurs as it transitions into the Running phase after its Waiting period.
 
 **gr_sa.yaml** is a service account which will be attached to runner, in order to have permissions for redeploying Nginx.
 
@@ -192,6 +200,7 @@ kubectl apply -f self-hosted-runner
 
 ![self-hosted-runner](images/self-hosted-runner/3.png)
 
+
 ### Validate self-hosted-runner is running and connected
 
 ```bash
@@ -203,7 +212,9 @@ kubectl logs github-runner-58855b59b6-l87sv
 
 ![self-hosted-runner](images/self-hosted-runner/4.png)
 
+
 ![self-hosted-runner](images/self-hosted-runner/5.png)
+
 
 ### Add Github Workflow to redeploy Nginx on configuration change
 
@@ -234,9 +245,12 @@ To actually apply changes I use ‘kubectl apply -f nginx/deployment.yaml’, ku
 
 Now each commit with a change of **nginx/deployment.yaml** which pushed, will redeploy Nginx (In this example I changed number of replicas to 2 replicas) :
 
+
 ![self-hosted-runner](images/self-hosted-runner/6.png)
 
+
 ![self-hosted-runner](images/self-hosted-runner/7.png)
+
 
 Thank you for reading, I hope you enjoyed it, see you in the next post.
 
