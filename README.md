@@ -9,6 +9,8 @@ In this tutorial, I will create simple and practical example of how to provision
 https://youtu.be/-910lhQXJIs
 
 
+
+
 [GitOps way with Github Actions and self-hosted runner on Kubernetes](gitops-selfhosted-runner.md)
 
 In this tutorial, I will show how to:
@@ -18,6 +20,8 @@ In this tutorial, I will show how to:
 2. Redeploy Nginx server on your k8s cluster with every change in nginx/deployment.yaml, which pushed to Github repo.
 
 > "Every change in configuration of deployment.yaml on Github will be propagated to Nginx server."
+
+
 
 
 [Automatic scaling with Github Actions and self-hosted runners](scale-runners.md)
