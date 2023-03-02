@@ -2,23 +2,30 @@
 
 ![scale-runners](images/scale-runners/0.png)
 
-In this tutorial, I will show how to:
+** In this tutorial, I will show how to:**
+
 
 1. Deploy Actions Runner Controller (ARC) to Kubernetes and connect it with your GitHub repo.
 
+
 2. Scale automatically your self-hosted runners count up to the total number of pending jobs in queue.
 
+
 > "The main purpose of this guide is to describe the real use case: AWS EKS cluster which is not externally accessible, only using VPN or inside of VPC to which cluster is provisioned."
+
+
 
 ## Why to use self-hosted runner?
 
 The reason for self-hosted runner is coming from security limitation ( in my case), I have an internal k8s cluster which is not externally reachable and can be accessed only via VPN.
+
 
 **So how it works if the cluster can't be reached externally?**
 
 > "Communication between self-hosted runners and GitHub
 The self-hosted runner connects to GitHub to receive job assignments and to download new versions of the runner application. The self-hosted runner uses an HTTPS long poll that opens a connection to GitHub for 50 seconds, and if no response is received, it then times out and creates a new long poll. The application must be running on the machine to accept and run GitHub Actions jobs.
 Since the self-hosted runner opens a connection to GitHub.com, you do not need to allow GitHub to make inbound connections to your self-hosted runner."
+
 
 ## Let's do it
 
@@ -53,6 +60,7 @@ helm install \
 
 ![scale-runners](images/scale-runners/2.png)
 
+
 ### Need to generate Github's Personal access token (PAT) first
 
 I will use PAT authentication for Github:
@@ -78,6 +86,7 @@ Log-in to a GitHub account that has admin privileges for the repository, and cre
 **Required Scopes for Enterprise Runners**
 * admin:enterprise (manage_runners:enterprise)
 
+
 **Go to your Github account** -> https://github.com/settings/profile, then to
 
 Developer settings -> Generate new token
@@ -97,13 +106,16 @@ kubectl create secret generic controller-manager \
 
 ### Installation of ARC
 
+
 ```bash
 helm repo add actions-runner-controller https://actions-runner-controller.github.io/actions-runner-controller
 helm upgrade --install --namespace actions-runner-system --create-namespace \
              --wait actions-runner-controller actions-runner-controller/actions-runner-controller
 ```
 
+
 ![scale-runners](images/scale-runners/4.png)
+
 
 Deploying the first example runner
 
@@ -131,7 +143,9 @@ kubectl apply -f runner-example.yaml
 
 ![scale-runners](images/scale-runners/5.png)
 
+
 ![scale-runners](images/scale-runners/6.png)
+
 
 Looks very good :-), self-hosted runner is connected.
 
@@ -142,6 +156,7 @@ Now it's time to remove the runner-example:
 ```bash
 kubectl delete -f runner-example.yaml
 ```
+
 
 ## Autoscaling with HorizontalRunnerAutoscaler
 
@@ -200,9 +215,12 @@ Metrics used: TotalNumberOfQueuedAndInProgressWorkflowRuns
 kubectl apply -f hra.yaml
 ```
 
+
 ![scale-runners](images/scale-runners/7.png)
 
+
 ![scale-runners](images/scale-runners/8.png)
+
 
 > "One runner is up, which is minimal number needed and reasonable because I still not using any runners…"
 
@@ -274,27 +292,35 @@ jobs:
 
 Need to add this workflow under '.github/workflows' directory in your repo, I already added to 'github-actions-series' repo: https://github.com/warolv/github-actions-series/actions/workflows/scale_test.yaml
 
+
 ![scale-runners](images/scale-runners/9.png)
 
 Click on 'Run workflow'
 
 ![scale-runners](images/scale-runners/10.png)
 
+
 ![scale-runners](images/scale-runners/11.png)
+
 
 ![scale-runners](images/scale-runners/12.png)
 
+
 You can see after 1 min or even less scaling to 4 runners is occurred. :-)
+
 
 ![scale-runners](images/scale-runners/13.png)
 
 Took 2 min to complete, and scale down to 1 runner occurred after 10 min, the default settings.
 
+
 ![scale-runners](images/scale-runners/14.png)
+
 
 ![scale-runners](images/scale-runners/15.png)
 
 Thank you for reading, I hope you enjoyed it, see you in the next post.
+
 
 In next post I will talk about **how to add/remove resources  to your k8s cluster dynamically using Karpenter.**
 
