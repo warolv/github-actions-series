@@ -8,6 +8,14 @@ This tutorial, will be first in series of tutorials for Github Actions, in next 
 
 I will try to be practical as much as possible in my tutorials, so there will not be much theory.
 
+### Github Actions published guides:
+
+[Use GitHub Actions and Terraform to provision EC2 instance](tf-example.md)
+[GitOps way with Github Actions and self-hosted runner on Kubernetes](gitops-selfhosted-runner.md)
+[Automatic scaling with Github Actions and self-hosted runners](scale-runners.md)
+
+
+
 ## Goal
 
 Deploy EC2 instance of t3.small size to your AWS account using Github Actions and Terraform.

@@ -13,7 +13,11 @@
 
 > "The main purpose of this guide is to describe the real use case: AWS EKS cluster which is not externally accessible, only using VPN or inside of VPC to which cluster is provisioned."
 
+### Github Actions published guides:
 
+[Use GitHub Actions and Terraform to provision EC2 instance](tf-example.md)
+[GitOps way with Github Actions and self-hosted runner on Kubernetes](gitops-selfhosted-runner.md)
+[Automatic scaling with Github Actions and self-hosted runners](scale-runners.md)
 
 ## Why to use self-hosted runner?
 

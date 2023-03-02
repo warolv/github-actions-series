@@ -10,6 +10,11 @@ In this tutorial, I will show how to:
 
 > "Every change in configuration of deployment.yaml on Github will be propagated to Nginx server."
 
+### Github Actions published guides:
+
+[Use GitHub Actions and Terraform to provision EC2 instance](tf-example.md)
+[GitOps way with Github Actions and self-hosted runner on Kubernetes](gitops-selfhosted-runner.md)
+[Automatic scaling with Github Actions and self-hosted runners](scale-runners.md)
 
 
 ## So, why self-hosted runner?
