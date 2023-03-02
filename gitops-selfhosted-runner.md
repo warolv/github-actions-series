@@ -12,9 +12,11 @@ In this tutorial, I will show how to:
 
 ### Github Actions published guides:
 
-[Use GitHub Actions and Terraform to provision EC2 instance](tf-example.md)
-[GitOps way with Github Actions and self-hosted runner on Kubernetes](gitops-selfhosted-runner.md)
-[Automatic scaling with Github Actions and self-hosted runners](scale-runners.md)
+1. [Use GitHub Actions and Terraform to provision EC2 instance](tf-example.md)
+
+2. [GitOps way with Github Actions and self-hosted runner on Kubernetes](gitops-selfhosted-runner.md)
+
+3. [Automatic scaling with Github Actions and self-hosted runners](scale-runners.md)
 
 
 ## So, why self-hosted runner?
