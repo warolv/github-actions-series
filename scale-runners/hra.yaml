@@ -6,6 +6,12 @@ spec:
   template:
     spec:
       repository: warolv/github-actions-series
+      labels:
+      - sh-k8s-runner
+      resources:
+        limits:
+          cpu: 300m
+          memory: 500Mi
 ---
 apiVersion: actions.summerwind.dev/v1alpha1
 kind: HorizontalRunnerAutoscaler
