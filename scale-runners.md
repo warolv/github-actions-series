@@ -317,8 +317,6 @@ Took 2 min to complete, and scale down to 1 runner occurred after 10 min, the de
 ![scale-runners](images/scale-runners/14.png)
 
 
-![scale-runners](images/scale-runners/15.png)
-
 Thank you for reading, I hope you enjoyed it, see you in the next post.
 
 
