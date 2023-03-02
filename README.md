@@ -11,3 +11,8 @@ https://youtu.be/-910lhQXJIs
 [GitOps way with Github Actions and self-hosted runner on Kubernetes](gitops-selfhosted-runner.md)
 
 ![gitops-selfhosted-runner](images/self-hosted-runner/0.png)
+
+
+[Automatic scaling with Github Actions and self-hosted runners](scale-runners.md)
+
+![scale-runners](images/scale-runners/0.png)

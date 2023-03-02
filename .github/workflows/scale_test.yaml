@@ -1,0 +1,42 @@
+name: Scale test
+
+on:
+  workflow_dispatch:
+
+jobs:
+  scale-test1:
+    runs-on: sh-k8s-runner
+    steps:
+      - uses: actions/checkout@v3
+      - run: npm install -g bats
+      - run: bats -v
+      - run: sudo apt update -y
+      - name: Run a one-line script
+        run: echo scale test 1 finished!
+  scale-test2:
+    runs-on: sh-k8s-runner
+    steps:
+      - uses: actions/checkout@v3
+      - run: npm install -g bats
+      - run: bats -v
+      - run: sudo apt update -y
+      - name: Run a one-line script
+        run: echo scale test 1 finished!
+  scale-test3:
+    runs-on: sh-k8s-runner
+    steps:
+      - uses: actions/checkout@v3
+      - run: npm install -g bats
+      - run: bats -v
+      - run: sudo apt update -y
+      - name: Run a one-line script
+        run: echo scale test 1 finished!
+  scale-test4:
+    runs-on: sh-k8s-runner
+    steps:
+      - uses: actions/checkout@v3
+      - run: npm install -g bats
+      - run: bats -v
+      - run: sudo apt update -y
+      - name: Run a one-line script
+        run: echo scale test 1 finished!
