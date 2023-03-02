@@ -2,7 +2,7 @@
 
 ![gh-tf-example](images/scale-runners/0.png)
 
-[Use GitHub Actions and Terraform to provision EC2 instance](tf-example.md)
+### [Use GitHub Actions and Terraform to provision EC2 instance](tf-example.md)
 
 In this tutorial, I will create simple and practical example of how to provision EC2 instance with Github Actions and Terraform. I will use workflow_dispatch type of workflow which is triggered manually by user, using Terraform Github action from HashiCorp.
 
@@ -10,8 +10,7 @@ https://youtu.be/-910lhQXJIs
 
 
 
-
-[GitOps way with Github Actions and self-hosted runner on Kubernetes](gitops-selfhosted-runner.md)
+### [GitOps way with Github Actions and self-hosted runner on Kubernetes](gitops-selfhosted-runner.md)
 
 In this tutorial, I will show how to:
 
@@ -23,8 +22,7 @@ In this tutorial, I will show how to:
 
 
 
-
-[Automatic scaling with Github Actions and self-hosted runners](scale-runners.md)
+### [Automatic scaling with Github Actions and self-hosted runners](scale-runners.md)
 
 In this tutorial, I will show how to:
 
