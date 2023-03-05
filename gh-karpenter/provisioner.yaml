@@ -1,0 +1,30 @@
+apiVersion: karpenter.sh/v1alpha5
+kind: Provisioner
+metadata:
+  name: default
+spec:
+  labels:
+    instance-type: spot-ci
+  limits:
+    resources:
+      cpu: 1k
+  provider:
+    securityGroupSelector:
+      alpha.eksctl.io/cluster-name: eks-gh-runners
+    subnetSelector:
+      alpha.eksctl.io/cluster-name: eks-gh-runners
+    tags:
+      alpha.eksctl.io/cluster-name: eks-gh-runners
+  requirements:
+  - key: node.kubernetes.io/instance-type
+    operator: In
+    values: ["t2.medium", "t3.medium", "t3a.medium"]
+  - key: karpenter.sh/capacity-type
+    operator: In
+    values:
+    - spot
+  - key: kubernetes.io/arch
+    operator: In
+    values:
+    - amd64
+  ttlSecondsAfterEmpty: 30
