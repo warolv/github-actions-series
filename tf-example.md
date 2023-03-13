@@ -16,7 +16,7 @@ I will try to be practical as much as possible in my tutorials, so there will no
 
 3. [Automatic scaling with Github Actions and self-hosted runners](scale-runners.md)
 
-
+4. [Github Actions with k8s and Karpenter to dynamically provision your runners on spot instances](gh-karpenter-spots.md)
 
 ## Goal
 

@@ -21,6 +21,8 @@
 
 3. [Automatic scaling with Github Actions and self-hosted runners](scale-runners.md)
 
+4. [Github Actions with k8s and Karpenter to dynamically provision your runners on spot instances](gh-karpenter-spots.md)
+
 ## Why to use self-hosted runner?
 
 The reason for self-hosted runner is coming from security limitation ( in my case), I have an internal k8s cluster which is not externally reachable and can be accessed only via VPN.

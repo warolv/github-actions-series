@@ -18,6 +18,8 @@ In this tutorial, I will show how to:
 
 3. [Automatic scaling with Github Actions and self-hosted runners](scale-runners.md)
 
+4. [Github Actions with k8s and Karpenter to dynamically provision your runners on spot instances](gh-karpenter-spots.md)
+
 
 ## So, why self-hosted runner?
 
