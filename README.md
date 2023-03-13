@@ -31,3 +31,15 @@ In this tutorial, I will show how to:
 2. Scale automatically your self-hosted runners count up to the total number of pending jobs in queue.
 
 > "The main purpose of this guide is to describe the real use case: AWS EKS cluster which is not externally accessible, only using VPN or inside of VPC to which cluster is provisioned."
+
+
+
+### 4. [Github Actions with k8s and Karpenter to dynamically provision your runners on spot instances.](gh-karpenter-spots.md)
+
+In this tutorial, I will show how to:
+
+1. Run self-hosted runners with Github Actions on AWS spot instances.
+
+2. Dynamically add/remove resources to your k8s cluster by Karpenter.
+
+> "This guide is continuation of previous tutorial, please make sure you read it and have cluster with installed ARC."
