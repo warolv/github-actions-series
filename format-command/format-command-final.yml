@@ -4,7 +4,7 @@ on:
   repository_dispatch:
     types: [format-command]
 jobs:
-  apply:
+  format:
     runs-on: ubuntu-latest
     steps:
       # Setup Python environment
