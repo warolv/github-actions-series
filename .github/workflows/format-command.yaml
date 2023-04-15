@@ -7,6 +7,26 @@ jobs:
   format:
     runs-on: ubuntu-latest
     steps:
-      - name: Run format command
+      # Setup Python environment
+      - uses: actions/setup-python@v3
+
+      # Install black
+      - name: Install black
+        run: pip install black
+
+      # Execute black in check mode
+      - name: Black
+        id: black
         run: |
-          echo 'format command executed!'
+          format=$(black --check --quiet . || echo "true")
+          echo "format=$format" >> $GITHUB_OUTPUT
+
+      # Execute black and commit the change to the PR branch
+      - name: Commit to the PR branch
+        if: steps.black.outputs.format == 'true'
+        run: |
+          black .
+          git config --global user.name 'actions-bot'
+          git config --global user.email '58130806+actions-bot@users.noreply.github.com'
+          git commit -am "[black-command] fixes"
+          git push
