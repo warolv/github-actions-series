@@ -1,5 +1,4 @@
----
-name: format
+name: format-command
 on:
   repository_dispatch:
     types: [format-command]
@@ -7,6 +6,13 @@ jobs:
   format:
     runs-on: ubuntu-latest
     steps:
+      # Checkout the pull request branch
+      - uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GH_PAT }}
+          repository: ${{ github.event.client_payload.pull_request.head.repo.full_name }}
+          ref: ${{ github.event.client_payload.pull_request.head.ref }}
+
       # Setup Python environment
       - uses: actions/setup-python@v3
 
@@ -14,16 +20,8 @@ jobs:
       - name: Install black
         run: pip install black
 
-      # Execute black in check mode
-      - name: Black
-        id: black
-        run: |
-          format=$(black --check --quiet . || echo "true")
-          echo "format=$format" >> $GITHUB_OUTPUT
-
       # Execute black and commit the change to the PR branch
       - name: Commit to the PR branch
-        if: steps.black.outputs.format == 'true'
         run: |
           black .
           git config --global user.name 'actions-bot'
