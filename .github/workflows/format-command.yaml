@@ -7,7 +7,7 @@ jobs:
   format:
     runs-on: ubuntu-latest
     steps:
-      # Setup Python environment
+      # Setup Python env
       - uses: actions/setup-python@v3
 
       # Install black
