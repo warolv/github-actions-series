@@ -7,6 +7,7 @@
 # You must provide 1 parameter:
 # FUNCTION_NAME      = Lambda function name
 
+
 import sys
 import boto3
 import botocore
