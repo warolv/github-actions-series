@@ -9,4 +9,4 @@ jobs:
     steps:
       - name: Run format command
         run: |
-          echo 'format command executed!'
+          echo 'Format command executed!'
