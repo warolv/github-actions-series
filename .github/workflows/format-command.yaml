@@ -1,5 +1,4 @@
----
-name: format
+name: format-command
 on:
   repository_dispatch:
     types: [format-command]
@@ -7,7 +6,14 @@ jobs:
   format:
     runs-on: ubuntu-latest
     steps:
-      # Setup Python env
+      # Checkout the pull request branch
+      - uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GH_PAT }}
+          repository: ${{ github.event.client_payload.pull_request.head.repo.full_name }}
+          ref: ${{ github.event.client_payload.pull_request.head.ref }}
+
+      # Setup Python environment
       - uses: actions/setup-python@v3
 
       # Install black
