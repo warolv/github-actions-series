@@ -43,3 +43,11 @@ In this tutorial, I will show how to:
 2. Dynamically add/remove resources to your k8s cluster by Karpenter.
 
 > "This guide is continuation of previous tutorial, please make sure you read it and have cluster with installed ARC."
+
+### 5. [Github Actions with ChatOps to write Beautiful Python Code](gh-chatops.md)
+
+In this tutorial, I will show how to:
+
+1. Trigger Github Actions Workflow using PR comments like ‘/format’ (ChatOps). I will use 'slash-command-dispatch' for this.
+
+2. Format the python code with PEP8 as part of PR and re-commit it again.
