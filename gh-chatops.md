@@ -2,13 +2,14 @@
 
 ![gh-chatops](images/format-command/0.png)
 
-** In this tutorial, I will show how to:**
+**In this tutorial, I will show how to:**
 
 
 1. Trigger Github Actions Workflow using PR comments like ‘/format’ (ChatOps). I will use 'slash-command-dispatch' for this.
 
 
 2. Format the python code with PEP8 as part of PR and re-commit it again.
+
 
 
 ### Github Actions published guides:
@@ -24,6 +25,7 @@
 5. [Github Actions with ChatOps to write beautiful python code](gh-chatops.md)
 
 
+
 ## Let's start
 
 I will start from the first part.
@@ -31,19 +33,18 @@ I will start from the first part.
 > "Trigger Github Actions Workflow using PR comments like ‘/format’ (ChatOps). I will use slash-command-dispatch for this."
 
 
-*Why create dispatch events?*
+Why create dispatch events?
 
 > "ChatOps with slash commands can work in a basic way by parsing the commands during issue_comment events and immediately processing the command. In repositories with a lot of activity, the workflow queue will get backed up very quickly trying to handle new issue_comment events and process the commands themselves.
-
 Dispatching commands to be processed elsewhere keeps the workflow queue moving quickly. It essentially enables parallel processing of workflows.
-
 An additional benefit of dispatching is that it allows non-sensitive workloads to be run in public repositories to save using private repository GitHub Action minutes."
 
 Read more: https://github.com/peter-evans/slash-command-dispatch
 
-Adding 'Slash Command Dispatch' workflow.
+**Adding 'Slash Command Dispatch' workflow.**
 
 > ".github/workflows/sh-dispatcher.yaml"
+
 
 ```yaml
 name: Slash Command Dispatch
@@ -100,7 +101,7 @@ For verification need to create the PR, in my example:
 git checkout -b test-chatops-commands
 ```
 
-*Do some change*, I changed output for echo in my case,
+**Do some change**, I changed output for echo in my case,
 
 from ‘echo ‘format command executed!’’ to ‘echo ‘Format command executed!’’
 
@@ -108,18 +109,19 @@ from ‘echo ‘format command executed!’’ to ‘echo ‘Format command exec
 git commit -am “Push changes”
 ```
 
-*Open PR:*
+**Open PR:**
 
 ![gh-chatops](images/format-command/2.png)
-
-*Now add comment ‘/format’.*
-
-
 ![gh-chatops](images/format-command/3.png)
+
+**Now add comment ‘/format’.**
+
 
 ![gh-chatops](images/format-command/4.png)
 
 ![gh-chatops](images/format-command/5.png)
+
+![gh-chatops](images/format-command/6.png)
 
 You can see ‘format command executed!’ , so it works :-) !
 
@@ -135,9 +137,11 @@ https://pypi.org/project/black/
 
 > "Black is the uncompromising Python code formatter. By using it, you agree to cede control over minutiae of hand-formatting. In return, Black gives you speed, determinism, and freedom from pycodestyle nagging about formatting. You will save time and mental energy for more important matters."
 
+
 To use ‘black’ I will rewrite command workflow:
 
 > ".github/workflows/format-command.yaml"
+
 
 ```yaml
 name: format-command
@@ -237,13 +241,13 @@ if __name__ == '__main__':
     main()
 ```
 
-![gh-chatops](images/format-command/6.png)
+![gh-chatops](images/format-command/7.png)
 
 You can see above new commit was pushed to this PR.
 
-![gh-chatops](images/format-command/7.png)
-
 ![gh-chatops](images/format-command/8.png)
+
+![gh-chatops](images/format-command/9.png)
 
 It working great as you can see:-)
 

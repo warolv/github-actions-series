@@ -20,6 +20,8 @@ In this tutorial, I will show how to:
 
 4. [Github Actions with k8s and Karpenter to dynamically provision your runners on spot instances](gh-karpenter-spots.md)
 
+5. [Github Actions with ChatOps to write beautiful python code](gh-chatops.md)
+
 
 ## So, why self-hosted runner?
 

@@ -23,6 +23,8 @@
 
 4. [Github Actions with k8s and Karpenter to dynamically provision your runners on spot instances](gh-karpenter-spots.md)
 
+5. [Github Actions with ChatOps to write beautiful python code](gh-chatops.md)
+
 ## Why to use self-hosted runner?
 
 The reason for self-hosted runner is coming from security limitation ( in my case), I have an internal k8s cluster which is not externally reachable and can be accessed only via VPN.

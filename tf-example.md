@@ -18,6 +18,8 @@ I will try to be practical as much as possible in my tutorials, so there will no
 
 4. [Github Actions with k8s and Karpenter to dynamically provision your runners on spot instances](gh-karpenter-spots.md)
 
+5. [Github Actions with ChatOps to write beautiful python code](gh-chatops.md)
+
 ## Goal
 
 Deploy EC2 instance of t3.small size to your AWS account using Github Actions and Terraform.
