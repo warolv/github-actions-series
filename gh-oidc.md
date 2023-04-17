@@ -27,6 +27,7 @@
 
 6. [Use OpenID Connect with Github Actions to authenticate with Amazon Web Services](gh-oidc.md)
 
+
 ## Let's start
 
 In previous [post](tf-example.md), I used 'configure-aws-credentials' action in workflow to authenticate via AWS.
@@ -48,6 +49,7 @@ To make it possible need to configure first OIDC provider in your AWS account an
 
 Using 'configure-aws-credentials' with OIDC provider, will look like that:
 
+
 ```yaml
 - name: Configure AWS Credentials
   uses: aws-actions/configure-aws-credentials@v2
@@ -64,15 +66,19 @@ Your AWS account -> IAM -> Identity providers -> Create Identity Provider. Selec
 
 ![gh-oidc](images/gh-oidc/1.png)
 
+
 For the provider URL: Use 'https://token.actions.githubusercontent.com'
 
 For the "Audience": Use 'sts.amazonaws.com'
 
+
 ![gh-oidc](images/gh-oidc/2.png)
+
 
 Click on 'Get thumbprint' and then 'Add provider' button.
 
 ![gh-oidc](images/gh-oidc/3.png)
+
 
 **Next we need to create IAM role to start using provider**
 
@@ -84,11 +90,14 @@ Identity provider: 'token.actions.githubusercontent.com'
 
 Audience: 'sts.amazonaws.com'
 
+
 ![gh-oidc](images/gh-oidc/4.png)
+
 
 Click 'Next' and add needed permissions, I will use AmazonEC2FullAccess needed to provision EC2 instance.
 
 ![gh-oidc](images/gh-oidc/5.png)
+
 
 Click 'Next'
 
@@ -96,13 +105,36 @@ Give your role a name: 'gh-role' in my case
 
 Trusted policy auto generated for you, account name I changed to 12345678, but you will see you account instead.
 
-![gh-oidc](images/gh-oidc/6.png)
+
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": "sts:AssumeRoleWithWebIdentity",
+            "Principal": {
+                "Federated": "arn:aws:iam::12345678:oidc-provider/token.actions.githubusercontent.com"
+            },
+            "Condition": {
+                "StringEquals": {
+                    "token.actions.githubusercontent.com:aud": [
+                        "sts.amazonaws.com"
+                    ]
+                }
+            }
+        }
+    ]
+}
+```
 
 Click 'Create Role' and the role will be created.
+
 
 ## Use OIDC provider with EC2 provisioning workflow
 
 The original workflow I created in [first guide](tf-example.md)
+
 
 **Workflow with changes included:**
 
@@ -171,6 +203,7 @@ permissions:
 ```
 
 > "Read more: https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-amazon-web-services"
+
 
 You can validate everything works great after changes.
 
