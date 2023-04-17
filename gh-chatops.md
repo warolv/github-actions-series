@@ -258,3 +258,7 @@ git@github.com:warolv/github-actions-series.git
 cd format-command
 ```
 
+Thank you for reading, I hope you enjoyed it.
+
+I also will create Youtube video for this tutorial on my YT channel: https://www.youtube.com/@igorzhivilo, please subscribe!
+
