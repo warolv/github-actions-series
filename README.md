@@ -60,4 +60,4 @@ In this tutorial, I will show how to:
 
 > "The reason behind that is security: Avoid storing long living AWS credentials (access_key_id and secret_access_key) in Github as a secrets."
 
-2. Improve the security of ‘EC2 provisioning’ workflow I described in first guide: https://medium.com/everything-full-stack/use-github-actions-and-terraform-to-provision-ec2-instance-5b51636e4e54
+2. Improve the security of ‘EC2 provisioning’ workflow I described in first guide.
