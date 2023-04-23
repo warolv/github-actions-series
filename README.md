@@ -51,3 +51,13 @@ In this tutorial, I will show how to:
 1. Trigger Github Actions Workflow using PR comments like ‘/format’ (ChatOps). I will use 'slash-command-dispatch' for this.
 
 2. Format the python code with PEP8 as part of PR and re-commit it again.
+
+### 6. [OpenID Connect and Github Actions to authenticate with Amazon Web Services](gh-oidc.md)
+
+In this tutorial, I will show how to:
+
+1. Use OpenID Connect within your Github workflows to authenticate with Amazon Web Services.
+
+> "The reason behind that is security: Avoid storing long living AWS credentials (access_key_id and secret_access_key) in Github as a secrets."
+
+2. Improve the security of ‘EC2 provisioning’ workflow I described in first guide: https://medium.com/everything-full-stack/use-github-actions-and-terraform-to-provision-ec2-instance-5b51636e4e54
