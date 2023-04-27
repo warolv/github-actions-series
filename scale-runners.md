@@ -25,6 +25,8 @@
 
 5. [Github Actions with ChatOps to write beautiful python code](gh-chatops.md)
 
+6. [OpenID Connect and Github Actions to authenticate with Amazon Web Services](gh-oidc.md)
+
 ## Why to use self-hosted runner?
 
 The reason for self-hosted runner is coming from security limitation ( in my case), I have an internal k8s cluster which is not externally reachable and can be accessed only via VPN.
