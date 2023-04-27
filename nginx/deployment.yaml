@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: my-nginx
   labels:
-    app: nginx
+    app: nginx-test
 spec:
   replicas: 2
   selector:
