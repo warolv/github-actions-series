@@ -20,6 +20,8 @@ In this tutorial, I will show how to:
 
 > "Every change in configuration of deployment.yaml on Github will be propagated to Nginx server."
 
+https://youtu.be/cV1LhQT1bK4
+
 
 
 ### 3. [Automatic scaling with Github Actions and self-hosted runners](scale-runners.md)
