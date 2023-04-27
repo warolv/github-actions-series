@@ -24,6 +24,7 @@ In this tutorial, I will show how to:
 
 5. [Github Actions with ChatOps to write beautiful python code](gh-chatops.md)
 
+6. [OpenID Connect and Github Actions to authenticate with Amazon Web Services](gh-oidc.md)
 
 ## What is Karpenter?
 
