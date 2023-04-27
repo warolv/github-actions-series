@@ -24,7 +24,8 @@
 
 5. [Github Actions with ChatOps to write beautiful python code](gh-chatops.md)
 
-
+6. [OpenID Connect and Github Actions to authenticate with Amazon Web Services](gh-oidc.md)
+7. 
 
 ## Let's start
 
