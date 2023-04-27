@@ -20,6 +20,8 @@ I will try to be practical as much as possible in my tutorials, so there will no
 
 5. [Github Actions with ChatOps to write beautiful python code](gh-chatops.md)
 
+6. [OpenID Connect and Github Actions to authenticate with Amazon Web Services](gh-oidc.md)
+
 ## Goal
 
 Deploy EC2 instance of t3.small size to your AWS account using Github Actions and Terraform.
