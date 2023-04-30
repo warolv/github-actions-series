@@ -34,6 +34,8 @@ In this tutorial, I will show how to:
 
 > "The main purpose of this guide is to describe the real use case: AWS EKS cluster which is not externally accessible, only using VPN or inside of VPC to which cluster is provisioned."
 
+https://youtu.be/kBeznj8qW1U
+
 
 
 ### 4. [Github Actions with k8s and Karpenter to dynamically provision your runners on spot instances.](gh-karpenter-spots.md)
